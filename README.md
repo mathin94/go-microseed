@@ -190,26 +190,27 @@ LOG_FILE_PATH=logs/app.jsonl
 
 ```mermaid
 flowchart TD
-    subgraph Client
-        U[User / External Service]
-    end
+  subgraph Client
+    U[User / External Service]
+  end
 
-    subgraph Service["microseed service"]
-        H[HTTP Router (Gin)] --> HD[Handlers]
-        HD --> S[Service Layer]
-        S --> DB[(Postgres via GORM)]
-        S --> R[(Redis Cache)]
-    end
+  subgraph Service["microseed service"]
+    H[HTTP Router Gin] --> HD[Handlers]
+    HD --> S[Service Layer]
+    S --> DB[(Postgres via GORM)]
+    S --> R[(Redis Cache)]
+  end
 
-    subgraph Infra
-        M[(Migrations via Goose)]
-        SEED[(Seeders)]
-        O[Observability (OpenTelemetry)]
-        L[Logger (Zap)]
-    end
+  subgraph Infra
+    M[(Migrations via Goose)]
+    SEED[(Seeders)]
+    O[Observability OpenTelemetry]
+    L[Logger Zap]
+  end
 
-    U --> H
-    M --> DB
-    SEED --> DB
-    Service --> O
-    Service --> L
+  U --> H
+  M --> DB
+  SEED --> DB
+  Service --> O
+  Service --> L
+```
