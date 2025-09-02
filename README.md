@@ -1,4 +1,3 @@
-```markdown
 # microseed — Go microservice skeleton
 
 Small starter for building HTTP microservices in Go with embedded DB migrations and seeding.
@@ -9,6 +8,7 @@ Small starter for building HTTP microservices in Go with embedded DB migrations 
 - `.env` file for local config
 
 ## Quick start
+
 ```bash
 cp .env.example .env
 go mod tidy
@@ -34,30 +34,23 @@ go run ./cmd/app seed
 ## Make usage
 If you use the provided `Makefile`, common targets are:
 ```bash
-# Show available targets
-make help
-
-# Install deps and prepare local env
-make setup
-
-# Run API (alias of serve)
+# Run API
 make run
-make serve
+
+# Build binary (outputs bin/microseed)
+make build
 
 # DB migrations
 make migrate-up
-make migrate-down
+make migrate-down    # one step
 make migrate-reset
 
 # Seed data
 make seed
 
-# Lint, format, tidy, test, build
-make lint
+# Format and test
 make fmt
-make tidy
 make test
-make build
 ```
 
 ## Configuration
@@ -75,4 +68,3 @@ DB_DSN=postgres://user:pass@localhost:5432/app?sslmode=disable
 ## Health endpoints
 - `GET /healthz` \= liveness
 - `GET /readyz` \= readiness
-```
