@@ -195,7 +195,7 @@ flowchart TD
     end
 
     subgraph Service["microseed service"]
-        H[HTTP Router (Gin)] -->|calls| HD[Handlers]
+        H[HTTP Router (Gin)] --> HD[Handlers]
         HD --> S[Service Layer]
         S --> DB[(Postgres via GORM)]
         S --> R[(Redis Cache)]
